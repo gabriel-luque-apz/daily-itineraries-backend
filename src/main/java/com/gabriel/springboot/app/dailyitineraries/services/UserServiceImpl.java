@@ -1,0 +1,41 @@
+package com.gabriel.springboot.app.dailyitineraries.services;
+
+import com.gabriel.springboot.app.dailyitineraries.entities.User;
+import com.gabriel.springboot.app.dailyitineraries.repositories.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+public class UserServiceImpl implements UserService {
+
+    final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Optional<User> findById(Long id) {
+        return Optional.empty();
+    }
+
+    @Transactional
+    @Override
+    public User save(User user) {
+        return null;
+    }
+
+    @Transactional
+    @Override
+    public Optional<User> deleteById(Long id) {
+        return Optional.empty();
+    }
+}

@@ -1,5 +1,6 @@
 package com.gabriel.springboot.app.dailyitineraries.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gabriel.springboot.app.dailyitineraries.entities.enums.Priority;
 import jakarta.persistence.*;
 
@@ -23,6 +24,7 @@ public class Itinerary {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     public Long getId() {
